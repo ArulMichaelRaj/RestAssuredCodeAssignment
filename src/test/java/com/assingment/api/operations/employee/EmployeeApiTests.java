@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(glue = {"StepDefs"},
         features = {"src/test/resources"})
 
-public class EmployeeApiTests {
+public class EmployeeApiTests  {
 
 }
