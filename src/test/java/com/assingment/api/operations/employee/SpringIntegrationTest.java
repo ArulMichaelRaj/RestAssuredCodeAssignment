@@ -1,5 +1,6 @@
 package com.assingment.api.operations.employee;
 
+import com.assingment.api.operations.employee.EmployeeApplication;
 import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;

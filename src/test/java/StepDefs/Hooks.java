@@ -4,9 +4,11 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
+import java.io.IOException;
+
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
-public class Hooks {
+public class Hooks extends GenericActions{
     public static WireMockServer wireMockServer;
 
     /*
@@ -14,10 +16,12 @@ public class Hooks {
      */
 
     @Before
-    public void startServerAndLoadAllStubs() {
+    public void startServerAndLoadAllStubs() throws IOException {
+        loadProperties();
+        int wiremockport = Integer.parseInt(GenericActions.wiremockport);
         if (wireMockServer == null) {
-            wireMockServer = new WireMockServer(8888);
-            configureFor("localhost", 8888);
+            wireMockServer = new WireMockServer(wiremockport);
+            configureFor("localhost", wiremockport);
             wireMockServer.start();
             new RestStubsInitiateLibrary().setWireMockServer(wireMockServer);
         }

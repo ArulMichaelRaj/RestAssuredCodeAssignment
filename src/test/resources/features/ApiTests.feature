@@ -3,24 +3,24 @@ Feature: Operations of Employee API
   Scenario: Create Employee
     Given I have the 'create employee' stub service up and running with the URL "/employee"
     When I do a POST API request to create an employee
-    Then I verify the success message and response status code as CREATED
+    Then I verify the success message for 'Create Employee' and response status code as CREATED
 
   Scenario: Create list of Employees
     Given I have the 'create multiple employee' stub service up and running with the URL "/employee/createWithArray"
     When I do a POST API request to create an employee to create multiple employees
       | Deo Raj | Rithik Pac | Mike Jackson | John Kennedy | Dulce Esposa |
-    Then I verify the success message and response status code as CREATED
+    Then I verify the success message for 'Create List Employees' and response status code as CREATED
 
   Scenario: Login as valid employee
     Given I have the 'login' stub service up and running with the URL "/employee/login" and below credentials
       | mike@test.com | test#123 |
     When I do a GET API request to login
-    Then I verify the success message and response status code as OK
+    Then I verify the success message for login and response status code as OK
 
   Scenario: Employee logs out of the System
     Given I have the 'logout' stub service up and running with the URL "/employee/logout"
     When I do a GET API request to logout
-    Then I verify the success message and response status code as OK
+    Then I verify the success message for logout and response status code as OK
 
   Scenario: Get an Employee details with employee name
     Given I have the 'getEmployee' stub service up and running with the URL "/employee" to return details of employee "Mike"
