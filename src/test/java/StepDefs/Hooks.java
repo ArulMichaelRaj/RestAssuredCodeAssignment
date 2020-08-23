@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
-public class Hooks extends GenericActions{
+public class Hooks {
     public static WireMockServer wireMockServer;
 
     /*
@@ -17,7 +17,7 @@ public class Hooks extends GenericActions{
 
     @Before
     public void startServerAndLoadAllStubs() throws IOException {
-        loadProperties();
+        new GenericActions().loadProperties();
         int wiremockport = Integer.parseInt(GenericActions.wiremockport);
         if (wireMockServer == null) {
             wireMockServer = new WireMockServer(wiremockport);
